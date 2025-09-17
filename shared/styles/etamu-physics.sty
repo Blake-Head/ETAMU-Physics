@@ -1,0 +1,99 @@
+% ETAMU Physics Manual Style Package
+% This package provides consistent styling for all physics manuals
+
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{etamu-physics}[2024/01/01 ETAMU Physics Manual Style]
+
+% Required packages
+\RequirePackage[utf8]{inputenc}
+\RequirePackage[T1]{fontenc}
+\RequirePackage{geometry}
+\RequirePackage{amsmath}
+\RequirePackage{amsfonts}
+\RequirePackage{amssymb}
+\RequirePackage{physics}
+\RequirePackage{siunitx}
+\RequirePackage{graphicx}
+\RequirePackage{float}
+\RequirePackage{booktabs}
+\RequirePackage{array}
+\RequirePackage{enumitem}
+\RequirePackage{fancyhdr}
+\RequirePackage{xcolor}
+\RequirePackage{hyperref}
+\RequirePackage{cleveref}
+\RequirePackage{tikz}
+\RequirePackage{pgfplots}
+\RequirePackage{circuitikz}
+\RequirePackage{chemfig}
+
+% Page geometry
+\geometry{
+    letterpaper,
+    margin=1in,
+    headheight=14pt
+}
+
+% Colors
+\definecolor{etamumaroon}{RGB}{128,0,0}
+\definecolor{etamugray}{RGB}{102,102,102}
+\definecolor{codecolor}{RGB}{245,245,245}
+
+% Hyperref setup
+\hypersetup{
+    colorlinks=true,
+    linkcolor=etamumaroon,
+    urlcolor=etamumaroon,
+    citecolor=etamumaroon,
+    pdfborder={0 0 0}
+}
+
+% SI units setup
+\sisetup{
+    detect-all,
+    per-mode=symbol,
+    range-phrase = \text{ to },
+    range-units = single
+}
+
+% Custom commands for physics
+\newcommand{\vect}[1]{\mathbf{#1}}
+\newcommand{\uvect}[1]{\hat{\mathbf{#1}}}
+\newcommand{\magnitude}[1]{\left|\vect{#1}\right|}
+
+% Tutorial box environment
+\RequirePackage[most]{tcolorbox}
+\newtcolorbox{tutorialbox}[1][]{
+    colback=codecolor,
+    colframe=etamumaroon,
+    fonttitle=\bfseries,
+    title=LaTeX Tutorial,
+    #1
+}
+
+% Example box environment
+\newtcolorbox{examplebox}[1][]{
+    colback=etamugray!10,
+    colframe=etamugray,
+    fonttitle=\bfseries,
+    title=Example,
+    #1
+}
+
+% Problem box environment
+\newtcolorbox{problembox}[1][]{
+    colback=etamumaroon!10,
+    colframe=etamumaroon,
+    fonttitle=\bfseries,
+    title=Problem,
+    #1
+}
+
+% Header and footer setup
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\textcolor{etamumaroon}{\textbf{ETAMU Physics}}}
+\fancyhead[R]{\textcolor{etamugray}{\leftmark}}
+\fancyfoot[C]{\textcolor{etamugray}{\thepage}}
+
+\endinput

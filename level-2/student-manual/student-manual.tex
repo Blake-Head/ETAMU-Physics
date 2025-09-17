@@ -1,0 +1,204 @@
+\documentclass[11pt]{book}
+
+% Use the ETAMU physics style package
+\usepackage{../../shared/styles/etamu-physics}
+\usepackage{braket}  % For quantum mechanics notation
+
+% Document metadata
+\title{Level 2 Physics\\Student Manual}
+\author{ETAMU Physics Department}
+\date{\today}
+
+\begin{document}
+
+\frontmatter
+\maketitle
+
+\tableofcontents
+
+\chapter{Introduction}
+
+Welcome to Level 2 Physics! This course covers advanced topics in electricity and magnetism, waves and optics, and modern physics including quantum mechanics and special relativity.
+
+\mainmatter
+
+\chapter{Electromagnetic Theory}
+
+\section{Electric Fields and Gauss's Law}
+
+Gauss's law relates the electric flux through a closed surface to the enclosed charge:
+\[ \oint \vect{E} \cdot d\vect{A} = \frac{Q_{enc}}{\epsilon_0} \]
+
+In differential form:
+\[ \nabla \cdot \vect{E} = \frac{\rho}{\epsilon_0} \]
+
+\section{Magnetic Fields and Ampère's Law}
+
+Ampère's law (without displacement current):
+\[ \oint \vect{B} \cdot d\vect{l} = \mu_0 I_{enc} \]
+
+The magnetic field has no sources:
+\[ \nabla \cdot \vect{B} = 0 \]
+
+\section{Electromagnetic Induction}
+
+Faraday's law of electromagnetic induction:
+\[ \mathcal{E} = -\frac{d\Phi_B}{dt} = -\frac{d}{dt}\int \vect{B} \cdot d\vect{A} \]
+
+In differential form:
+\[ \nabla \times \vect{E} = -\frac{\partial \vect{B}}{\partial t} \]
+
+\chapter{Waves and Optics}
+
+\section{Wave Equation}
+
+The general wave equation:
+\[ \frac{\partial^2 y}{\partial t^2} = v^2 \frac{\partial^2 y}{\partial x^2} \]
+
+For electromagnetic waves in vacuum:
+\[ \frac{\partial^2 \vect{E}}{\partial t^2} = c^2 \nabla^2 \vect{E} \]
+
+where $c = \frac{1}{\sqrt{\mu_0\epsilon_0}} = \SI{3.00e8}{\meter\per\second}$
+
+\section{Interference and Diffraction}
+
+\subsection{Double-Slit Interference}
+
+For two coherent sources separated by distance $d$:
+\[ \delta = d\sin\theta \]
+
+Constructive interference: $\delta = m\lambda$
+
+Destructive interference: $\delta = (m + \frac{1}{2})\lambda$
+
+\subsection{Single-Slit Diffraction}
+
+The first minimum occurs at:
+\[ a\sin\theta = \lambda \]
+
+where $a$ is the slit width.
+
+\chapter{Modern Physics}
+
+\section{Special Relativity}
+
+\subsection{Postulates}
+\begin{enumerate}
+    \item The laws of physics are the same in all inertial reference frames
+    \item The speed of light in vacuum is constant for all observers
+\end{enumerate}
+
+\subsection{Consequences}
+
+Time dilation:
+\[ \Delta t = \gamma \Delta t_0 \]
+
+Length contraction:
+\[ L = \frac{L_0}{\gamma} \]
+
+where $\gamma = \frac{1}{\sqrt{1-v^2/c^2}}$ is the Lorentz factor.
+
+\subsection{Energy and Momentum}
+
+Rest energy: $E_0 = mc^2$
+
+Total energy: $E = \gamma mc^2$
+
+Energy-momentum relation: $E^2 = (pc)^2 + (mc^2)^2$
+
+\section{Quantum Mechanics}
+
+\subsection{Wave-Particle Duality}
+
+De Broglie wavelength:
+\[ \lambda = \frac{h}{p} \]
+
+Photon energy:
+\[ E = hf = \hbar\omega \]
+
+\subsection{Uncertainty Principle}
+
+Heisenberg uncertainty principle:
+\[ \Delta x \Delta p \geq \frac{\hbar}{2} \]
+\[ \Delta E \Delta t \geq \frac{\hbar}{2} \]
+
+\subsection{Schrödinger Equation}
+
+Time-dependent:
+\[ i\hbar \frac{\partial \psi}{\partial t} = \hat{H}\psi \]
+
+Time-independent:
+\[ \hat{H}\psi = E\psi \]
+
+\subsection{Particle in a Box}
+
+For a particle confined to length $L$:
+
+Wavefunctions:
+\[ \psi_n(x) = \sqrt{\frac{2}{L}} \sin\left(\frac{n\pi x}{L}\right) \]
+
+Energy levels:
+\[ E_n = \frac{n^2\pi^2\hbar^2}{2mL^2} \]
+
+\chapter{Thermodynamics and Statistical Mechanics}
+
+\section{Laws of Thermodynamics}
+
+\textbf{Zeroth Law:} If A is in thermal equilibrium with C, and B is in thermal equilibrium with C, then A and B are in thermal equilibrium.
+
+\textbf{First Law:} $dU = \delta Q - \delta W$
+
+\textbf{Second Law:} The entropy of an isolated system never decreases.
+
+\textbf{Third Law:} The entropy of a perfect crystal at absolute zero is zero.
+
+\section{Statistical Mechanics}
+
+Boltzmann distribution:
+\[ P(E) = \frac{1}{Z} e^{-E/k_BT} \]
+
+Partition function:
+\[ Z = \sum_i e^{-E_i/k_BT} \]
+
+Maxwell-Boltzmann distribution for speeds:
+\[ f(v) = 4\pi \left(\frac{m}{2\pi k_B T}\right)^{3/2} v^2 e^{-mv^2/2k_BT} \]
+
+\backmatter
+
+\appendix
+
+\chapter{Constants and Formulas}
+
+\section{Physical Constants}
+
+\begin{tabular}{lcl}
+    \toprule
+    Constant & Symbol & Value \\
+    \midrule
+    Speed of light & $c$ & \SI{3.00e8}{\meter\per\second} \\
+    Planck's constant & $h$ & \SI{6.626e-34}{\joule\second} \\
+    Reduced Planck's constant & $\hbar$ & \SI{1.055e-34}{\joule\second} \\
+    Elementary charge & $e$ & \SI{1.602e-19}{\coulomb} \\
+    Electron mass & $m_e$ & \SI{9.109e-31}{\kilogram} \\
+    Proton mass & $m_p$ & \SI{1.673e-27}{\kilogram} \\
+    Boltzmann constant & $k_B$ & \SI{1.381e-23}{\joule\per\kelvin} \\
+    \bottomrule
+\end{tabular}
+
+\section{Key Formulas}
+
+\subsection{Electromagnetism}
+\begin{align}
+    \nabla \cdot \vect{E} &= \frac{\rho}{\epsilon_0} \\
+    \nabla \times \vect{B} &= \mu_0\vect{J} + \mu_0\epsilon_0\frac{\partial \vect{E}}{\partial t} \\
+    \vect{F} &= q(\vect{E} + \vect{v} \times \vect{B})
+\end{align}
+
+\subsection{Modern Physics}
+\begin{align}
+    E &= hf = \hbar\omega \\
+    \lambda &= \frac{h}{p} \\
+    E^2 &= (pc)^2 + (mc^2)^2
+\end{align}
+
+\end{document}

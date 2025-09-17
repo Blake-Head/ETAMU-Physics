@@ -1,0 +1,208 @@
+\documentclass[11pt]{book}
+
+% Use the ETAMU physics style package
+\usepackage{../../shared/styles/etamu-physics}
+
+% Document metadata
+\title{Level 1 Physics\\Student Manual}
+\author{ETAMU Physics Department}
+\date{\today}
+
+\begin{document}
+
+\frontmatter
+\maketitle
+
+\tableofcontents
+\listoffigures
+
+\chapter{Introduction}
+
+Welcome to Level 1 Physics! This manual contains problems, exercises, and reference material for the introductory physics course. 
+
+\section{How to Use This Manual}
+
+This manual includes:
+\begin{itemize}
+    \item Fundamental concepts and equations
+    \item Worked examples with detailed solutions
+    \item Practice problems for each topic
+    \item Reference materials and formulas
+\end{itemize}
+
+\section{Mathematical Prerequisites}
+
+You should be comfortable with:
+\begin{itemize}
+    \item Algebra and basic trigonometry
+    \item Vector operations
+    \item Basic calculus (derivatives and integrals)
+\end{itemize}
+
+\mainmatter
+
+\chapter{Mechanics}
+
+\section{Kinematics}
+
+Kinematics describes motion without considering the forces that cause it. The fundamental quantities are position, velocity, and acceleration.
+
+\subsection{Motion in One Dimension}
+
+For motion with constant acceleration, we have three key equations:
+
+\begin{align}
+    v &= v_0 + at \label{eq:v-const-a} \\
+    x &= x_0 + v_0 t + \frac{1}{2}at^2 \label{eq:x-const-a} \\
+    v^2 &= v_0^2 + 2a(x - x_0) \label{eq:v2-const-a}
+\end{align}
+
+where:
+\begin{itemize}
+    \item $x$ is position (\si{\meter})
+    \item $v$ is velocity (\si{\meter\per\second})
+    \item $a$ is acceleration (\si{\meter\per\second\squared})
+    \item $t$ is time (\si{\second})
+\end{itemize}
+
+\begin{examplebox}[title=Example 1.1]
+A ball is thrown upward with an initial velocity of \SI{20}{\meter\per\second}. Taking upward as positive and $g = \SI{9.8}{\meter\per\second\squared}$:
+
+\begin{enumerate}[label=(\alph*)]
+    \item How long does it take to reach maximum height?
+    \item What is the maximum height reached?
+    \item How long is the ball in the air?
+\end{enumerate}
+\end{examplebox}
+
+\textbf{Solution:}
+
+Given: $v_0 = \SI{20}{\meter\per\second}$, $a = -g = \SI{-9.8}{\meter\per\second\squared}$
+
+(a) At maximum height, $v = 0$. Using \cref{eq:v-const-a}:
+\begin{align}
+    0 &= \SI{20}{\meter\per\second} + (\SI{-9.8}{\meter\per\second\squared})t \\
+    t &= \frac{\SI{20}{\meter\per\second}}{\SI{9.8}{\meter\per\second\squared}} = \SI{2.04}{\second}
+\end{align}
+
+(b) Using \cref{eq:x-const-a} with $x_0 = 0$:
+\begin{align}
+    x &= (\SI{20}{\meter\per\second})(\SI{2.04}{\second}) + \frac{1}{2}(\SI{-9.8}{\meter\per\second\squared})(\SI{2.04}{\second})^2 \\
+    &= \SI{20.4}{\meter}
+\end{align}
+
+(c) Total time in air is twice the time to reach maximum height:
+\[ t_{total} = 2 \times \SI{2.04}{\second} = \SI{4.08}{\second} \]
+
+\subsection{Motion in Two Dimensions}
+
+For projectile motion, we analyze horizontal and vertical components separately:
+
+\textbf{Horizontal motion:} $a_x = 0$ (no air resistance)
+\begin{align}
+    x &= x_0 + v_{0x}t \\
+    v_x &= v_{0x} = \text{constant}
+\end{align}
+
+\textbf{Vertical motion:} $a_y = -g$
+\begin{align}
+    y &= y_0 + v_{0y}t - \frac{1}{2}gt^2 \\
+    v_y &= v_{0y} - gt
+\end{align}
+
+\section{Forces and Newton's Laws}
+
+\subsection{Newton's Laws of Motion}
+
+\begin{enumerate}
+    \item \textbf{First Law:} $\sum \vect{F} = 0 \Rightarrow \vect{a} = 0$
+    \item \textbf{Second Law:} $\sum \vect{F} = m\vect{a}$
+    \item \textbf{Third Law:} $\vect{F}_{AB} = -\vect{F}_{BA}$
+\end{enumerate}
+
+\subsection{Common Forces}
+
+\begin{itemize}
+    \item \textbf{Weight:} $\vect{W} = m\vect{g}$ (always downward)
+    \item \textbf{Normal force:} $\vect{N}$ (perpendicular to surface)
+    \item \textbf{Friction:} $f_s \leq \mu_s N$ (static), $f_k = \mu_k N$ (kinetic)
+    \item \textbf{Tension:} Force in strings/ropes (along the string)
+\end{itemize}
+
+\chapter{Energy and Work}
+
+\section{Work and Kinetic Energy}
+
+Work is defined as:
+\[ W = \vect{F} \cdot \vect{d} = Fd\cos\theta \]
+
+The work-energy theorem states:
+\[ W_{net} = \Delta KE = \frac{1}{2}mv_f^2 - \frac{1}{2}mv_i^2 \]
+
+\section{Potential Energy}
+
+\subsection{Gravitational Potential Energy}
+Near Earth's surface:
+\[ U_g = mgh \]
+
+\subsection{Elastic Potential Energy}
+For a spring with spring constant $k$:
+\[ U_s = \frac{1}{2}kx^2 \]
+
+\section{Conservation of Energy}
+
+In the absence of non-conservative forces:
+\[ E = KE + PE = \text{constant} \]
+
+\chapter{Momentum and Collisions}
+
+\section{Linear Momentum}
+
+Momentum is defined as:
+\[ \vect{p} = m\vect{v} \]
+
+Newton's second law in terms of momentum:
+\[ \sum \vect{F} = \frac{d\vect{p}}{dt} \]
+
+\section{Conservation of Momentum}
+
+When no external forces act on a system:
+\[ \sum \vect{p}_i = \sum \vect{p}_f \]
+
+This applies to collisions and explosions.
+
+\backmatter
+
+\appendix
+
+\chapter{Reference Formulas}
+
+\section{Kinematics}
+\begin{align}
+    v &= v_0 + at \\
+    x &= x_0 + v_0 t + \frac{1}{2}at^2 \\
+    v^2 &= v_0^2 + 2a(x - x_0)
+\end{align}
+
+\section{Forces}
+\begin{align}
+    \sum \vect{F} &= m\vect{a} \\
+    f_s &\leq \mu_s N \\
+    f_k &= \mu_k N
+\end{align}
+
+\section{Energy}
+\begin{align}
+    W &= \vect{F} \cdot \vect{d} \\
+    KE &= \frac{1}{2}mv^2 \\
+    U_g &= mgh \\
+    U_s &= \frac{1}{2}kx^2
+\end{align}
+
+\section{Momentum}
+\begin{align}
+    \vect{p} &= m\vect{v} \\
+    \sum \vect{F} &= \frac{d\vect{p}}{dt}
+\end{align}
+
+\end{document}
