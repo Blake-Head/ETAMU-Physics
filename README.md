@@ -2,6 +2,10 @@
 
 A comprehensive LaTeX infrastructure for creating professional physics course manuals. This repository provides templates, styles, and extensive tutorials for typesetting physics content.
 
+# Important Note
+
+If you encounter a bad path error from any of the pre-built code from CoPilot, it might be because I changed the repo name from "ETAMU-Physics-" to "ETAMU-Physics".  I removed the trailing - symbol. 
+
 ## Features
 
 - **Complete LaTeX Infrastructure**: Ready-to-use build system with Makefiles
