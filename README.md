@@ -14,7 +14,7 @@ A comprehensive LaTeX infrastructure for creating professional physics course ma
 
 ```bash
 # Clone the repository
-git clone https://github.com/Blake-Head/ETAMU-Physics-.git
+git clone https://github.com/Blake-Head/ETAMU-Physics.git
 cd ETAMU-Physics-
 
 # Install LaTeX dependencies (Ubuntu/Debian)
