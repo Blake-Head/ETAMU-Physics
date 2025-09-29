@@ -2,10 +2,13 @@
 
 % Use the ETAMU physics style package
 \usepackage{../../shared/styles/etamu-physics}
+\usepackage{lscape}
+\usepackage{tikz}
+\usepackage{pgfplots}
 
 % Document metadata
 \title{University Physics I\\Instructor Manual}
-\author{ETAMU Physics Department}
+\author{ETAMU Department of Physics and Astronomy}
 \date{\today}
 
 \begin{document}
@@ -13,60 +16,54 @@
 \frontmatter
 \maketitle
 
+\begin{landscape}
+\begin{center}
+\begin{tikzpicture}[scale=5, every node/.style={font=\Huge}]
+    % Triangle sides
+    \draw[thick] (0,0) -- (3,0) -- (3,2) -- cycle;
+    % Hypotenuse vector
+    \draw[->, >=Stealth, very thick, blue] (0,0) -- (3,2) node[midway, above left] {$\vec{A}$};
+    % Base
+    \draw[->, >=Stealth, very thick] (0,0) -- (3,0);
+    % Height
+    \draw[->, >=Stealth, very thick] (3,0) -- (3,2);
+    % Angle theta at origin
+    \draw (0.4,0) arc (0:33.69:0.4);
+    \node at (0.55,0.18) {$\theta$};
+    % Angle phi at top right
+    \draw (3,1.5) arc (-90:-158:0.4);
+    \node at (2.75,1.45) {$\phi$};
+    % Dotted lines for clarity
+    \draw[dashed] (0,0) -- (3,2);
+    % Labels for triangle sides
+    \node at (1.5, -0.18) {$A_x = A \cos\theta$};
+    \node at (1.625, -0.38) {$ = A \sin\phi$};
+    \node[rotate=-90] at (3.18,1) {$A_y = A \sin\theta$};
+    \node[rotate=-90] at (3.38,0.85) {$= A \cos\phi$};
+    % Title below
+    \node at (1.5, -0.75) {\Large Right Triangle with Angles $\theta$ and $\phi$};
+\end{tikzpicture}
+\end{center}
+\end{landscape}
+
 \tableofcontents
-\listoffigures
 
-\chapter{Preface}
-
-Welcome to the Level 1 Physics Instructor Manual. This manual provides comprehensive coverage of introductory physics topics with detailed solutions, teaching notes, and extensive LaTeX examples for creating professional physics documents.
-
-\section{How to Use This Manual}
-
-This manual is designed to:
-\begin{itemize}
-    \item Provide complete solutions to all problems
-    \item Demonstrate best practices for typesetting physics content
-    \item Include LaTeX tutorials throughout for common physics elements
-    \item Serve as a template for creating additional course materials
-\end{itemize}
-
-\section{LaTeX Resources}
-
-Throughout this manual, you'll find tutorial boxes that explain how to create various elements in LaTeX. These are designed to help you modify and extend the course materials effectively.
-
+\input{chapters/preface.tex}
 
 \mainmatter
 
 % Include chapters from separate files
-\input{chapters/chapter1.tex}
-\input{chapters/chapter2.tex}
+
+\input{chapters/momentum.tex}
+\input{chapters/dynamics.tex}
+\input{chapters/workenergy.tex}
+\input{chapters/kinematics.tex}
+\input{chapters/rotational.tex}
+
 
 \backmatter
 
 \appendix
 
-\chapter{LaTeX Quick Reference}
-
-\section{Common Physics Symbols}
-\begin{tabular}{ll}
-    \toprule
-    Symbol & LaTeX Command \\
-    \midrule
-    $\vect{F}$ & \texttt{\textbackslash vect\{F\}} \\
-    $\uvect{r}$ & \texttt{\textbackslash uvect\{r\}} \\
-    $\dv{x}{t}$ & \texttt{\textbackslash dv\{x\}\{t\}} \\
-    $\pdv{f}{x}$ & \texttt{\textbackslash pdv\{f\}\{x\}} \\
-    $\SI{9.8}{\meter\per\second\squared}$ & \texttt{\textbackslash SI\{9.8\}\{\textbackslash meter\textbackslash per\textbackslash second\textbackslash squared\}} \\
-    \bottomrule
-\end{tabular}
-
-\section{Useful Packages}
-\begin{itemize}
-    \item \texttt{physics} - Physics notation and operators
-    \item \texttt{siunitx} - SI units and number formatting
-    \item \texttt{tikz} - Creating diagrams and figures
-    \item \texttt{pgfplots} - Plotting graphs and data
-    \item \texttt{circuitikz} - Circuit diagrams
-\end{itemize}
 
 \end{document}

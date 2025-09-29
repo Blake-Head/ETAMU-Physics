@@ -1,3 +1,5 @@
+\pgfplotsset{compat=1.18}
+
 \chapter{Momentum and Impulse}
 
 The first section of this class typically covers momentum, impulse, and 
@@ -51,7 +53,7 @@ large format version of this same picture on the first page for easy reference. 
 \textbf{Equipment Needed:} None \\
 \textbf{Pre-Lecture Required?}: No \\
 
-This introductory tutorial is meant to do two things: (1) introduce you to the idea of momentum
+This introductory tutorial is meant to do two things: (1) introduce students to the idea of momentum
 and impulse, and (2) get students used to studio mode and working in groups (assuming this is
 the first assignment of the semester). \\
 
@@ -78,10 +80,10 @@ momentum in the end.  It is often because students operate under a sort of "maxi
 force idea, where they are thinking about \textit{themselves} pushing the object.
 Since a person has a maximum force they can apply (and because friction and other things
 exist), in reality you can really only speed things you're pushing up to a certain point, 
-so time doesn't seem to matter. 
+so time doesn't seem to matter. A good example to use in these cases are rocket ships in space.
 \end{tutorialbox}
 
-\begin{problembox}[title=Learning Outcomes]
+\begin{problembox}[title=Learning Outcomes: Oomph]
 \begin{enumerate}[label=(\alph*)]
     \item Momentum is a measure of mass in motion and is calculated by $p = mv$.
     \item Impulse is a measure of an object's \textbf{change} in momentum, and is calculated by \\ $J = F \Delta t = \Delta p$.
@@ -110,3 +112,113 @@ be the positive direction.
     \item Estimate (just make a guess, .1 s, .5 s, 2 s, etc.) how much time the string on the bow was in contact with the arrow.
     \item Calculate the force the bow string imparted on the arrow.
 \end{enumerate}
+
+\begin{tutorialbox}[title = Student Issue: Guessing Values]
+You'd be surprised how often students don't realize that making an educated guess 
+about how long the bowstring is in contact with the arrow is a perfectly acceptable
+thing to do.  If students are struggling with this, remind them that they are not being
+asked to calculate the exact force, just to estimate it.
+\end{tutorialbox}
+
+\newpage
+\noindent
+\textbf{Problem 2:}  A miniature sled with a mass of 8.0 kg is sliding across the 
+ice to the right with a speed of 2.0 m/s when it hits a rough patch in the ice. 
+The force of friction for this rough patch of ice is shown as a function of time 
+in the figure below. To the right is defined to be positive direction.
+
+\begin{enumerate}[label=(\alph*)]
+    \item How will the sled’s speed change during the rough patch? 
+    Explain how your intuitive answer compares to the information given in the graph.
+    \item Calculate the sled’s speed and direction after the rough patch. 
+    Explain how this answer compares to your intuition.
+\end{enumerate}
+    
+\begin{center}
+    \begin{tikzpicture}
+        \begin{axis}[
+            xlabel={Time (s)},
+            ylabel={Force (N)},
+            ymin=-10, ymax=10,
+            xmin=0, xmax=1.5,
+            grid=major,
+            ytick={-10,-8,...,10}
+        ]
+        \addplot[blue,very thick,domain=0:0.5, samples=2] {0};
+        \addplot[blue,very thick,domain=0.5:1, samples=2] {-8};
+        \addplot[blue,very thick,domain=1:1.5, samples=2] {0};
+        % Dotted vertical lines at discontinuities
+        \addplot[dotted, thick, black, domain=-10:10] coordinates {(0.5,-8) (0.5,0)};
+        \addplot[dotted, thick, black, domain=-10:10] coordinates {(1,-8) (1,0)};
+    \end{axis}
+    \end{tikzpicture}
+\end{center}
+
+\begin{tutorialbox}[title = Student Issue: Negative Area]
+Take note that the area under the curve here is negative, since the force is negative. 
+While students typically do in fact correctly state that the impulse is negative here, it often
+comes purely from a physical intuition standpoint (friction slows things down), and they don't actually calculate the area numerically,
+with the negative 8 Newton force.
+\end{tutorialbox}
+\begin{tutorialbox}[title = Student Issue: Step Functions]
+    A handful of students will argue about the nature of the force graph here.  They will say that
+    the force can't just instantaneously jump from 0 to -8 N, and then back to 0 N.  Try to keep
+    them on the critical moments here, not the transition points. Assure them that this graph is an
+    \textbf{idealized} representation to help focus on the key concepts.
+\end{tutorialbox}
+
+\newpage
+
+\noindent
+\textbf{Problem 3:} Far in space, where gravity is negligible, a 425 kg rocket traveling 
+at 75 m/s fires its engines. The figure shows the thrust force as a function of time. 
+The mass lost by the rocket during these 30.0 s is negligible. Up is defined to be the 
+positive direction.
+
+\begin{enumerate}[label=(\alph*)]
+    \item Describe how the rocket's speed changes in the time intervals (i) 0-10 s and (ii) 10-30 s.
+    \item Calculate the rocket's speed at 10 s and at 30 s.
+    \item Are your answers to (a) and (b) consistent? If not, explain how you would change your answers to make them consistent.
+\end{enumerate}
+
+\begin{center}
+    \begin{tikzpicture}
+        \begin{axis}[
+            xlabel={Time (s)},
+            ylabel={Force (N)},
+            ymin=-500, ymax=1500,
+            xmin=0, xmax=30,
+            grid=major,
+            ytick={-500,0,500,1000,1500}
+        ]
+        \addplot[blue,very thick,domain=0:10, samples=2] {100*x};
+        \addplot[blue,very thick,domain=10:30, samples=2] {-50*x + 1500};
+    \end{axis}
+    \end{tikzpicture}
+\end{center}
+
+\begin{tutorialbox}[title = Student Issue: Negative Slope $\neq$ Slowing Down]
+    A very common mistake made on this problem is that during the first 10 seconds, the rocket 
+    is speeding up, which is true.  However, students will then go on to say that the rocket is
+    slowing down during the next 20 seconds, which is not true.  The force here is \textbf{always}
+    positive, meaning the rocket is always speeding up.  The force is just not as large during
+    the second time interval, so the rocket is still speeding up, just not as quickly.
+\end{tutorialbox}
+
+\vspace{2em}
+
+\noindent
+\textbf{Problem 4:} A monkey throws a lime.  The lime has a mass of 0.3 kg and it is 
+thrown at an initial velocity of 80 m/s (this particular monkey has realized there are 
+no limits to monkey strength). The lime flies across the jungle until it hits MonkeyMan 
+Steve in the face.  It is in contact with his face for 0.5 s.  What is the force felt 
+(in Newtons) by poor poor MonkeyMan Steve?
+
+\begin{problembox}[title=Learning Outcomes: Impulse in One Dimension]
+\begin{enumerate}[label=(\alph*)]
+    \item Calculate impulse from a force vs. time graph.
+    \item Calculate final velocity from impulse and initial velocity.
+    \item Understand that a negative force results in a negative impulse.
+    \item Solve problems algebraically and numerically.
+\end{enumerate}
+\end{problembox}

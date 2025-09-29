@@ -1,4 +1,4 @@
-\chapter{Experiment 1}
+\chapter{Dynamics}
 This is the first experiment chapter. Add your content here.
 
 \section{Energy and Work}
@@ -24,3 +24,16 @@ Use PGFPlots for energy graphs:
 \end{tikzpicture}
 \end{verbatim}
 \end{tutorialbox}
+
+\begin{tikzpicture}
+\begin{axis}[
+    xlabel={Position (m)},
+    ylabel={Energy (J)},
+    legend pos=north west
+]
+\addplot[blue,thick] {x^2/2};
+\addlegendentry{Potential Energy}
+\addplot[red,thick] {2-x^2/2};
+\addlegendentry{Kinetic Energy}
+\end{axis}
+\end{tikzpicture}
